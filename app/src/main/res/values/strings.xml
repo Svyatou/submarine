@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Побудь террористом</string>
+    <string name="text">Победитель!</string>
+    <string name="button1">Заново</string>
+    <string name="button2">Меню</string>
+</resources>
