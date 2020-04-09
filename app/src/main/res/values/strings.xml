@@ -3,4 +3,8 @@
     <string name="text">Победитель!</string>
     <string name="button1">Заново</string>
     <string name="button2">Меню</string>
+    <string name="textscore"></string>
+    <string name="textmiss"></string>
+    <string name="textitog">Кол-во попыток: </string>
+    <string name="score"></string>
 </resources>

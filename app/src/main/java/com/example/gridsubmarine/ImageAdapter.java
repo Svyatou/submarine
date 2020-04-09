@@ -10,8 +10,13 @@ import android.widget.ImageView;
 public class ImageAdapter extends BaseAdapter {
     private Context context;
 
+
     public ImageAdapter(Context c){
         context = c;
+    }
+
+    public ImageAdapter() {
+
     }
 
     @Override

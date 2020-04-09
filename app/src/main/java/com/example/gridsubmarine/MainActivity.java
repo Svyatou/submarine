@@ -2,6 +2,8 @@ package com.example.gridsubmarine;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -13,14 +15,17 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
-    int ship;
     public final int MAX = 34;
     public int number;
+    int score = 0;
+    private TextView textScoremain;
 
 
     @Override
@@ -42,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         textView = (TextView)findViewById(R.id.info);
+        textScoremain = (TextView)findViewById(R.id.textScoremain);
+
         GridView gridView = (GridView)findViewById(R.id.gridView);
         gridView.setAdapter(new ImageAdapter(this));
 
@@ -59,11 +66,18 @@ public class MainActivity extends AppCompatActivity {
 
     private GridView.OnItemClickListener gridviewOnItemClickListener = new GridView.OnItemClickListener(){
 
-
 //        Выводится номер позиции.
         @Override
         public void onItemClick(AdapterView<?> parent, View v, int position, long id){
+
+            score++;
+
+            textScoremain = (TextView)findViewById(R.id.textScoremain);
+            textScoremain.setText("Количество попыток: "+ String.valueOf(score));
+
+
             textView = (TextView)findViewById(R.id.info);
+
             Animation anim = new AlphaAnimation(0.0f, 1.0f);
             anim.setDuration(1000);
             anim.setStartOffset(20);
@@ -73,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (number == position){
                 Boom();
-            } 
+            }
         }
     };
 
