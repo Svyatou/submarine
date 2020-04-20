@@ -1,8 +1,10 @@
 package com.example.gridsubmarine;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -53,6 +55,8 @@ public class ImageAdapter extends BaseAdapter {
         return imageView;
     }
 
+
+
     //Забиваем массив картинкой поля.
     public Integer [] arrayImage = {R.drawable.water, R.drawable.water1, R.drawable.water2, R.drawable.water3,
             R.drawable.water4, R.drawable.water5, R.drawable.water6, R.drawable.water7, R.drawable.water8, R.drawable.water9,
@@ -60,4 +64,7 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.water16, R.drawable.water17, R.drawable.water18, R.drawable.water19, R.drawable.water20, R.drawable.water21,
             R.drawable.water22, R.drawable.water23, R.drawable.water24, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water,
             R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water};
+
+
 }
+

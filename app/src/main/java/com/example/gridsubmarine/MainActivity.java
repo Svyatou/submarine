@@ -3,20 +3,27 @@ package com.example.gridsubmarine;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.sql.Time;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public int number;
     int score = 0;
     private TextView textScoremain;
+    ImageView imageNo;
 
 
     @Override
@@ -49,15 +57,27 @@ public class MainActivity extends AppCompatActivity {
         textView = (TextView)findViewById(R.id.info);
         textScoremain = (TextView)findViewById(R.id.textScoremain);
 
-        GridView gridView = (GridView)findViewById(R.id.gridView);
-        gridView.setAdapter(new ImageAdapter(this));
-
-        gridView.setOnItemClickListener(gridviewOnItemClickListener);
+//        GridView gridView = (GridView)findViewById(R.id.gridView);
+//        ImageAdapter imageAdapter = new ImageAdapter(this);
+//        gridView.setAdapter(new ImageAdapter(this));
+//
+//
+//        gridView.setOnItemClickListener(gridviewOnItemClickListener);
 
         initGame();
     }
 
     void initGame(){
+
+        GridView gridView = (GridView)findViewById(R.id.gridView);
+        ImageAdapter imageAdapter = new ImageAdapter(this);
+        gridView.setAdapter(new ImageAdapter(this));
+        gridView.setOnItemClickListener(gridviewOnItemClickListener);
+
+        score = 0;
+
+        textScoremain = (TextView)findViewById(R.id.textScoremain);
+        textScoremain.setText("Количество попыток: "+ String.valueOf(score));
 
         Random random = new Random();
         number = random.nextInt(MAX);
@@ -85,8 +105,16 @@ public class MainActivity extends AppCompatActivity {
 
             textView.setText("Ваш выбор: " +String.valueOf(position+1));
 
-            if (number == position){
+            if (number == position) {
                 Boom();
+            } else if(number != position){
+
+                ImageView viewI = (ImageView)v;
+                Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                anim1.setDuration(1000);
+                anim1.setStartOffset(20);
+                viewI.setImageResource(R.drawable.no);
+                viewI.startAnimation(anim1);
             }
         }
     };
@@ -95,4 +123,7 @@ public class MainActivity extends AppCompatActivity {
         DialogNew dialog = new DialogNew();
         dialog.show(getSupportFragmentManager(), "");
     }
+
+
 }
+
