@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     int score = 0;
     private TextView textScoremain;
     ImageView imageNo;
+    Button singlePlay;
+    Button exitGame;
+    Button multiPlay;
 
 
     @Override
@@ -42,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
+        startGame();
+//        setContentView(R.layout.layout_menu);
 
         if (Build.VERSION.SDK_INT < 19) {
             View v = this.getWindow().getDecorView();
@@ -64,10 +69,40 @@ public class MainActivity extends AppCompatActivity {
 //
 //        gridView.setOnItemClickListener(gridviewOnItemClickListener);
 
-        initGame();
+
+    }
+    void startGame(){
+        setContentView(R.layout.layout_menu);
+
+        singlePlay = (Button)findViewById(R.id.singlePlay);
+        multiPlay = (Button)findViewById(R.id.multiPlay);
+        exitGame = (Button)findViewById(R.id.exitGame);
+
+        singlePlay.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                initGame();
+            }
+        });
+
+        multiPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        exitGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     void initGame(){
+         setContentView(R.layout.activity_main);
 
         GridView gridView = (GridView)findViewById(R.id.gridView);
         ImageAdapter imageAdapter = new ImageAdapter(this);
@@ -123,7 +158,5 @@ public class MainActivity extends AppCompatActivity {
         DialogNew dialog = new DialogNew();
         dialog.show(getSupportFragmentManager(), "");
     }
-
-
 }
 

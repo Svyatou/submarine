@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/menu">
+
+        <Button
+            android:id="@+id/singlePlay"
+            android:onClick="OnClick"
+            android:layout_width="152dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="268dp"
+            android:background="@drawable/hint"
+            android:text="single game"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.084" />
+
+        <Button
+            android:id="@+id/multiPlay"
+            android:onClick="OnClick"
+            android:layout_width="152dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/hint"
+            android:text="multiplayer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/singlePlay" />
+
+        <Button
+            android:id="@+id/exitGame"
+            android:onClick="OnClick"
+            android:layout_width="152dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/hint"
+            android:text="exit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/multiPlay" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

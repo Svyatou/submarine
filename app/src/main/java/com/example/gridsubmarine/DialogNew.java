@@ -34,6 +34,8 @@ public class DialogNew extends DialogFragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MainActivity callingActivity = (MainActivity) getActivity();
+                callingActivity.startGame();
                 dismiss();
             }
         });
