@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View v, int position, long id){
 
             score++;
-
             textScoremain = (TextView)findViewById(R.id.textScoremain);
             textScoremain.setText("Количество попыток: "+ String.valueOf(score));
 
@@ -153,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+
 
     void Boom(){
         DialogNew dialog = new DialogNew();

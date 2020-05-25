@@ -3,6 +3,7 @@ package com.example.gridsubmarine;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.view.LayoutInflater;
@@ -24,11 +25,13 @@ public class DialogNew extends DialogFragment {
 
         View dialogView = inflater.inflate(R.layout.layout_dialog, null);
 
-
         final TextView textView = (TextView)dialogView.findViewById(R.id.textv);
         final Button button1 = (Button)dialogView.findViewById(R.id.btn);
         final Button button2 = (Button)dialogView.findViewById(R.id.btn2);
-
+        TextView textScore = (TextView)dialogView.findViewById(R.id.textScore);
+        MainActivity call = (MainActivity) getActivity();
+        int score = call.score;
+        textScore.setText("Количество попыток: " +String.valueOf(score));
 
         builder.setView(dialogView);
         button2.setOnClickListener(new View.OnClickListener() {
