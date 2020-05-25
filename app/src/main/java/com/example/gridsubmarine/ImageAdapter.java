@@ -37,7 +37,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
 
-//Создаем ImageView для каждого элемента, на который будет ссылаться адаптер (настройка поля).
+    //Создаем ImageView для каждого элемента, на который будет ссылаться адаптер (настройка поля).
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
@@ -58,13 +58,12 @@ public class ImageAdapter extends BaseAdapter {
 
 
     //Забиваем массив картинкой поля.
-    public Integer [] arrayImage = {R.drawable.water, R.drawable.water1, R.drawable.water2, R.drawable.water3,
-            R.drawable.water4, R.drawable.water5, R.drawable.water6, R.drawable.water7, R.drawable.water8, R.drawable.water9,
-            R.drawable.water10, R.drawable.water11, R.drawable.water12, R.drawable.water13, R.drawable.water14, R.drawable.water15,
-            R.drawable.water16, R.drawable.water17, R.drawable.water18, R.drawable.water19, R.drawable.water20, R.drawable.water21,
-            R.drawable.water22, R.drawable.water23, R.drawable.water24, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water,
+    public Integer [] arrayImage = {R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water,
+            R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water,
+            R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water,
+            R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water,
+            R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water,
             R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water, R.drawable.water};
 
 
 }
-
