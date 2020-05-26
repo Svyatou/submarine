@@ -1,5 +1,6 @@
 package com.example.gridsubmarine;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -9,22 +10,39 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.w3c.dom.Text;
+
 import java.util.Random;
+
+import javax.xml.transform.Templates;
 
 public class MultiPlayerGame extends AppCompatActivity {
 
     private TextView textView;
+    TextView textAddplayer;
+    EditText addName;
+    Button btnStartpl;
+    Button btnAddpl;
+    TextView textPlayers;
+    TextView textPlayers2;
+    TextView textPlayers3;
+    TextView textPlayers4;
+    TextView textPlayers5;
+
+
     public final int MAX = 34;
     public int number;
     int score = 0;
     private TextView textScoremain;
-    Button multiPlayer;
+    int maxPlayer = 0;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +50,9 @@ public class MultiPlayerGame extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
+        Intent intent = getIntent();
 
-        initeGameMulti();
+        addPlayer();
 
         if (Build.VERSION.SDK_INT < 19) {
             View v = this.getWindow().getDecorView();
@@ -45,6 +64,45 @@ public class MultiPlayerGame extends AppCompatActivity {
             decorView.setSystemUiVisibility(uiOptions);
         }
 
+    }
+
+    void addPlayer(){
+        setContentView(R.layout.add_player);
+
+        btnAddpl = (Button)findViewById(R.id.btnAddpl);
+        textPlayers = (TextView)findViewById(R.id.textAddplayer);
+        textPlayers2 = (TextView)findViewById(R.id.textPlayers2);
+        textPlayers3 = (TextView)findViewById(R.id.textPlayers3);
+        textPlayers4 = (TextView)findViewById(R.id.textPlayers4);
+        textPlayers5 = (TextView)findViewById(R.id.textPlayers5);
+
+        textAddplayer = (TextView)findViewById(R.id.textAddplayer);
+        addName = (EditText)findViewById(R.id.addName);
+        btnStartpl = (Button)findViewById(R.id.btnStartpl);
+        textAddplayer.setText("Введите имена игроков:");
+
+        btnAddpl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textPlayers.setText(addName.getText().toString());
+                addName.setText("");
+                textPlayers2.setText(addName.getText().toString());
+                addName.setText("");
+                textPlayers3.setText(addName.getText().toString());
+                addName.setText("");
+                textPlayers4.setText(addName.getText().toString());
+                addName.setText("");
+                textPlayers5.setText(addName.getText().toString());
+                addName.setText("");
+            }
+        });
+
+        btnStartpl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initeGameMulti();
+            }
+        });
     }
 
     void initeGameMulti(){

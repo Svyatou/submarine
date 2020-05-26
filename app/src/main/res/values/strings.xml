@@ -7,4 +7,7 @@
     <string name="textmiss"></string>
     <string name="textitog">Кол-во попыток: </string>
     <string name="score"></string>
+    <string name="addname"></string>
+    <string name="startbtn">Начать</string>
+    <string name="authint">Имя</string>
 </resources>

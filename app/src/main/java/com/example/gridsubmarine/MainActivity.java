@@ -89,7 +89,9 @@ public class MainActivity extends AppCompatActivity {
         multiPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent i;
+                i = new Intent(MainActivity.this, MultiPlayerGame.class);
+                startActivity(i);
             }
         });
 
