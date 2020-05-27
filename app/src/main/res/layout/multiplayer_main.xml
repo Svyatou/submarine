@@ -12,7 +12,6 @@
         android:layout_height="29dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
         android:textAlignment="viewStart"
         android:textColor="#00A6FF"
         android:textSize="18sp"
@@ -28,7 +27,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
         android:textAlignment="viewStart"
         android:textColor="#0090FF"
         android:textSize="18sp"
@@ -44,7 +42,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
         android:textAlignment="viewStart"
         android:textColor="#00FFF7"
         android:textSize="18sp"
@@ -60,7 +57,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="244dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
         android:textAlignment="viewStart"
         android:textColor="#00F7FF"
         android:textSize="18sp"
@@ -76,7 +72,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="320dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
         android:textAlignment="viewStart"
         android:textColor="#00E5FF"
         android:textSize="18sp"
@@ -102,11 +97,13 @@
 
     <GridView
         android:id="@+id/gridViewMulti"
-        android:layout_width="384dp"
-        android:layout_height="602dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="383dp"
+        android:layout_height="597dp"
+        android:numColumns="5"
+        android:verticalSpacing="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoPlayer3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,9 +46,6 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        startGame();
-//        setContentView(R.layout.layout_menu);
-
         if (Build.VERSION.SDK_INT < 19) {
             View v = this.getWindow().getDecorView();
             v.setSystemUiVisibility(View.GONE);
@@ -58,20 +55,26 @@ public class MainActivity extends AppCompatActivity {
                     | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
             decorView.setSystemUiVisibility(uiOptions);
         }
+        startGame();
+//        setContentView(R.layout.layout_menu);
+
+
 
         textView = (TextView)findViewById(R.id.info);
         textScoremain = (TextView)findViewById(R.id.textScoremain);
 
-//        GridView gridView = (GridView)findViewById(R.id.gridView);
-//        ImageAdapter imageAdapter = new ImageAdapter(this);
-//        gridView.setAdapter(new ImageAdapter(this));
-//
-//
-//        gridView.setOnItemClickListener(gridviewOnItemClickListener);
-
 
     }
     void startGame(){
+        if (Build.VERSION.SDK_INT < 19) {
+        View v = this.getWindow().getDecorView();
+        v.setSystemUiVisibility(View.GONE);
+    } else {
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        decorView.setSystemUiVisibility(uiOptions);
+    }
         setContentView(R.layout.layout_menu);
 
         singlePlay = (Button)findViewById(R.id.singlePlay);
@@ -104,6 +107,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void initGame(){
+        if (Build.VERSION.SDK_INT < 19) {
+            View v = this.getWindow().getDecorView();
+            v.setSystemUiVisibility(View.GONE);
+        } else {
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
          setContentView(R.layout.activity_main);
 
         GridView gridView = (GridView)findViewById(R.id.gridView);

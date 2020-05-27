@@ -26,6 +26,7 @@ import javax.xml.transform.Templates;
 public class MultiPlayerGame extends AppCompatActivity {
 
     private TextView textView;
+    ImageView imageNo;
     TextView textAddplayer;
     EditText addName;
     Button btnStartpl;
@@ -41,14 +42,16 @@ public class MultiPlayerGame extends AppCompatActivity {
     String player3;
     String player4;
     String player5;
-
+    String winner;
+    TextView infoPlayer;
+    TextView infoPlayer2;
+    TextView infoPlayer3;
+    TextView infoPlayer4;
+    TextView infoPlayer5;
 
     public final int MAX = 34;
     public int number;
-    int score = 0;
-    private TextView textScoremain;
-    int maxPlayer = 0;
-    String name;
+    int score = 0, score2 = 0, score3 = 0, score4 = 0, score5 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +60,6 @@ public class MultiPlayerGame extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         Intent intent = getIntent();
-
-        addPlayer();
-
         if (Build.VERSION.SDK_INT < 19) {
             View v = this.getWindow().getDecorView();
             v.setSystemUiVisibility(View.GONE);
@@ -70,9 +70,19 @@ public class MultiPlayerGame extends AppCompatActivity {
             decorView.setSystemUiVisibility(uiOptions);
         }
 
+        addPlayer();
     }
 
     void addPlayer(){
+        if (Build.VERSION.SDK_INT < 19) {
+            View v = this.getWindow().getDecorView();
+            v.setSystemUiVisibility(View.GONE);
+        } else {
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
         setContentView(R.layout.add_player);
 
         btnAddpl = (Button)findViewById(R.id.btnAddpl);
@@ -98,35 +108,38 @@ public class MultiPlayerGame extends AppCompatActivity {
         final String n4 = "Игрок 4";
         final String n5 = "Игрок 5";
 
+
         btnAddpl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 if(addName.length() == 0)
             {addName.setHint("Вы не ввели имя!");}
                 else if(textPlayers.getText().toString().equals(n) && addName.length()!= 0)
-                {textPlayers.setText(addName.getText().toString());
+                {textPlayers.setText(addName.getText());
                 player = String.valueOf(textPlayers);
                 addName.setText("");
                 addName.setHint("Введите имя");
                 }
                 else if(textPlayers2.getText().toString().equals(n2) && addName.length()!= 0)
-                {textPlayers2.setText(addName.getText().toString());
-                player2 = String.valueOf(textPlayers2);
+                {textPlayers2.setText(addName.getText());
+                    player2 = String.valueOf(textPlayers2);
                 addName.setText("");
                 addName.setHint("Введите имя");}
                 else if(textPlayers3.getText().toString().equals(n3) && addName.length()!= 0)
-                {textPlayers3.setText(addName.getText().toString());
-                player3 = String.valueOf(textPlayers3);
+                {textPlayers3.setText(addName.getText());
+                    player3 = String.valueOf(textPlayers3);
                 addName.setText("");
                 addName.setHint("Введите имя");}
                 else if(textPlayers4.getText().toString().equals(n4) && addName.length()!= 0)
-                {textPlayers4.setText(addName.getText().toString());
-                player4 = String.valueOf(textPlayers4);
+                {textPlayers4.setText(addName.getText());
+                    player4 = String.valueOf(textPlayers4);
                 addName.setText("");
                 addName.setHint("Введите имя");}
                 else if(textPlayers5.getText().toString().equals(n5) && addName.length()!= 0)
-                {textPlayers5.setText(addName.getText().toString());
-                player5 = String.valueOf(textPlayers5);
+                {textPlayers5.setText(addName.getText());
+                    player5 = String.valueOf(textPlayers5);
                 addName.setText("");
                 addName.setHint("Введите имя");}
                 else if (addName.length()!=0)
@@ -144,6 +157,15 @@ public class MultiPlayerGame extends AppCompatActivity {
     }
 
     void initeGameMulti(){
+        if (Build.VERSION.SDK_INT < 19) {
+            View v = this.getWindow().getDecorView();
+            v.setSystemUiVisibility(View.GONE);
+        } else {
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
             setContentView(R.layout.multiplayer_main);
 
             GridView gridViewMulti = (GridView)findViewById(R.id.gridViewMulti);
@@ -151,60 +173,21 @@ public class MultiPlayerGame extends AppCompatActivity {
             gridViewMulti.setAdapter(new ImageAdapter(this));
             gridViewMulti.setOnItemClickListener(gridviewOnItemClickListener);
             score = 0;
-//            textInfoHOD = (TextView)findViewById(R.id.textInfoHOD);
-//            textInfoHOD.setText("Сейчас ход: " +player);
-
-
-
-//            Количество попыток у игроков.
-        TextView infoPlayer = (TextView)findViewById(R.id.infoPlayer);
-        TextView infoPlayer2 = (TextView)findViewById(R.id.infoPlayer2);
-        TextView infoPlayer3 = (TextView)findViewById(R.id.infoPlayer3);
-        TextView infoPlayer4 = (TextView)findViewById(R.id.infoPlayer4);
-        TextView infoPlayer5 = (TextView) findViewById(R.id.textPlayers5);
-        infoPlayer.setText(textPlayers.getText().toString());
-
             Random random = new Random();
             number = random.nextInt(MAX);
         }
     private GridView.OnItemClickListener gridviewOnItemClickListener = new GridView.OnItemClickListener(){
 
-        //        Выводится номер позиции.
+
         @Override
         public void onItemClick(AdapterView<?> parent, View v, int position, long id){
-            TextView infoPlayer = (TextView)findViewById(R.id.infoPlayer);
-            TextView infoPlayer2 = (TextView)findViewById(R.id.infoPlayer2);
-            TextView infoPlayer3 = (TextView)findViewById(R.id.infoPlayer3);
-            TextView infoPlayer4 = (TextView)findViewById(R.id.infoPlayer4);
-            TextView infoPlayer5 = (TextView) findViewById(R.id.textPlayers5);
 
-            for (int i = 0; i <= 5; i++) {
-            infoPlayer.setText("" +textPlayers.getText().toString()+": "+String.valueOf(score));
-            score++;
-            i++;
+//            Количество попыток у игроков, имя игрока чей ход в игре и нажатия на поле.
             }
-
-//            textScoremain = (TextView)findViewById(R.id.textScoremain);
-//            textScoremain.setText("Количество попыток: "+ String.valueOf(score));
-
-//            textView.setText("Ваш выбор: " +String.valueOf(position+1));
-
-            if (number == position) {
-                Boom();
-            } else if(number != position){
-
-                ImageView viewI = (ImageView)v;
-                Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
-                anim1.setDuration(1000);
-                anim1.setStartOffset(20);
-                viewI.setImageResource(R.drawable.no);
-                viewI.startAnimation(anim1);
-            }
-        }
     };
 
     void Boom(){
-        DialogNewMulti dialog = new DialogNewMulti();
-        dialog.show(getSupportFragmentManager(), "");
+//        DialogNewMulti dialog = new DialogNewMulti();
+//        dialog.show(getSupportFragmentManager(), "");
     }
 }
