@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 Boom();
             } else if(number != position){
 
+
                 ImageView viewI = (ImageView)v;
                 Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
                 anim1.setDuration(1000);
