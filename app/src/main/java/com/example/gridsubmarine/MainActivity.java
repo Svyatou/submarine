@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     public final int MAX = 34;
     public int number;
-    int score = 0;
+    int score = 10;
     private TextView textScoremain;
     ImageView imageNo;
     Button singlePlay;
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         gridView.setAdapter(new ImageAdapter(this));
         gridView.setOnItemClickListener(gridviewOnItemClickListener);
 
-        score = 0;
+        score = 10;
 
         textScoremain = (TextView)findViewById(R.id.textScoremain);
         textScoremain.setText("Количество попыток: "+ String.valueOf(score));
@@ -139,7 +139,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View v, int position, long id){
 
-            score++;
+            score--;
+            if(score == 0){
+                BoomLose();
+            }
             textScoremain = (TextView)findViewById(R.id.textScoremain);
             textScoremain.setText("Количество попыток: "+ String.valueOf(score));
 
@@ -171,6 +174,9 @@ public class MainActivity extends AppCompatActivity {
     void Boom(){
         DialogNew dialog = new DialogNew();
         dialog.show(getSupportFragmentManager(), "");
+    }
+    void BoomLose(){
+        finish();
     }
 }
 

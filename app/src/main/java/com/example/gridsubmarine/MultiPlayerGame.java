@@ -48,11 +48,11 @@ public class MultiPlayerGame extends AppCompatActivity {
     TextView infoPlayer3;
     TextView infoPlayer4;
     TextView infoPlayer5;
-    final String n = "Игрок 1";
-    final String n2 = "Игрок 2";
-    final String n3 = "Игрок 3";
-    final String n4 = "Игрок 4";
-    final String n5 = "Игрок 5";
+   final String n = "Игрок 1";
+   final String n2 = "Игрок 2";
+   final String n3 = "Игрок 3";
+   final String n4 = "Игрок 4";
+   final String n5 = "Игрок 5";
 
     public final int MAX = 34;
     public int number;
@@ -174,8 +174,14 @@ public class MultiPlayerGame extends AppCompatActivity {
             gridViewMulti.setAdapter(new ImageAdapter(this));
             gridViewMulti.setOnItemClickListener(gridviewOnItemClickListener);
             score = 0;
+            score2 =0;
+            score3 = 0;
+            score4 = 0;
+            score5 = 0;
             Random random = new Random();
             number = random.nextInt(MAX);
+
+
 
         infoPlayer = (TextView)findViewById(R.id.infoPlayer);
         infoPlayer2 = (TextView)findViewById(R.id.infoPlayer2);
@@ -185,18 +191,18 @@ public class MultiPlayerGame extends AppCompatActivity {
 
 
 
-        if(textPlayers.getText().toString().equals(n)){infoPlayer.setText("Игрок 1");}
-        else{infoPlayer.setText(String.valueOf(player));}
-        if(textPlayers2.getText().toString().equals(n2)){infoPlayer2.setText("Игрок 2");}
-        else{infoPlayer2.setText(String.valueOf(player2));}
-        if(textPlayers3.getText().toString().equals(n3)){infoPlayer3.setText("Игрок 3");}
-        else{infoPlayer3.setText(String.valueOf(player3));}
-        if(textPlayers4.getText().toString().equals(n4)){infoPlayer4.setText("Игрок 4");}
-        else{infoPlayer4.setText(String.valueOf(player4));}
-        if(textPlayers5.getText().toString().equals(n5)){infoPlayer5.setText("Игрок 5");}
-        else{infoPlayer5.setText(String.valueOf(player5));}
+//        if(textPlayers.getText().toString().equals(n)){infoPlayer.setText("Игрок 1");}
+//        else{infoPlayer.setText(String.valueOf(player));}
+//        if(textPlayers2.getText().toString().equals(n2)){infoPlayer2.setText("Игрок 2");}
+//        else{infoPlayer2.setText(String.valueOf(player2));}
+//        if(textPlayers3.getText().toString().equals(n3)){infoPlayer3.setText("Игрок 3");}
+//        else{infoPlayer3.setText(String.valueOf(player3));}
+//        if(textPlayers4.getText().toString().equals(n4)){infoPlayer4.setText("Игрок 4");}
+//        else{infoPlayer4.setText(String.valueOf(player4));}
+//        if(textPlayers5.getText().toString().equals(n5)){infoPlayer5.setText("Игрок 5");}
+//        else{infoPlayer5.setText(String.valueOf(player5));}
 
-
+        textInfoHOD = (TextView)findViewById(R.id.textInfoHOD);
         }
     private GridView.OnItemClickListener gridviewOnItemClickListener = new GridView.OnItemClickListener(){
 
@@ -204,7 +210,31 @@ public class MultiPlayerGame extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View v, int position, long id){
 
+            if(textPlayers.getText().toString().equals(n)){player = n; infoPlayer.setText(n+": " +score);}
+            else{infoPlayer.setText(String.valueOf(player+": " +score));}
+            if(textPlayers2.getText().toString().equals(n2)){player2 = n2; infoPlayer2.setText(n2+": " +score2);}
+            else{infoPlayer2.setText(String.valueOf(player2+": " +score2));}
+            if(textPlayers3.getText().toString().equals(n3)){infoPlayer3.setText(n3+": " +score3);}
+            else{infoPlayer3.setText(String.valueOf(player3+": " +score3));}
+            if(textPlayers4.getText().toString().equals(n4)){infoPlayer4.setText(n4+": "+score4);}
+            else{infoPlayer4.setText(String.valueOf(player4+": " +score4));}
+            if(textPlayers5.getText().toString().equals(n5)){infoPlayer5.setText(n5+": "+score5);}
+            else{infoPlayer5.setText(String.valueOf(player5+": " +score5));}
+
+
 //            Количество попыток у игроков, имя игрока чей ход в игре и нажатия на поле.
+            if(number==position){
+                score++;
+                winner = player;
+                Boom();} else if(number!=position){
+                score++;
+                textInfoHOD.setText("Переход хода к " +player2);
+                ImageView viewI = (ImageView)v;
+                Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                anim1.setDuration(1000);
+                anim1.setStartOffset(20);
+                viewI.setImageResource(R.drawable.no);
+                viewI.startAnimation(anim1);}
             }
     };
 
