@@ -48,6 +48,11 @@ public class MultiPlayerGame extends AppCompatActivity {
     TextView infoPlayer3;
     TextView infoPlayer4;
     TextView infoPlayer5;
+    final String n = "Игрок 1";
+    final String n2 = "Игрок 2";
+    final String n3 = "Игрок 3";
+    final String n4 = "Игрок 4";
+    final String n5 = "Игрок 5";
 
     public final int MAX = 34;
     public int number;
@@ -102,11 +107,7 @@ public class MultiPlayerGame extends AppCompatActivity {
         textPlayers3.setText("Игрок 3");
         textPlayers4.setText("Игрок 4");
         textPlayers5.setText("Игрок 5");
-        final String n = "Игрок 1";
-        final String n2 = "Игрок 2";
-        final String n3 = "Игрок 3";
-        final String n4 = "Игрок 4";
-        final String n5 = "Игрок 5";
+
 
 
         btnAddpl.setOnClickListener(new View.OnClickListener() {
@@ -118,28 +119,28 @@ public class MultiPlayerGame extends AppCompatActivity {
             {addName.setHint("Вы не ввели имя!");}
                 else if(textPlayers.getText().toString().equals(n) && addName.length()!= 0)
                 {textPlayers.setText(addName.getText());
-                player = String.valueOf(textPlayers);
+                player = textPlayers.getText().toString();
                 addName.setText("");
                 addName.setHint("Введите имя");
                 }
                 else if(textPlayers2.getText().toString().equals(n2) && addName.length()!= 0)
                 {textPlayers2.setText(addName.getText());
-                    player2 = String.valueOf(textPlayers2);
+                    player2 = textPlayers2.getText().toString();
                 addName.setText("");
                 addName.setHint("Введите имя");}
                 else if(textPlayers3.getText().toString().equals(n3) && addName.length()!= 0)
                 {textPlayers3.setText(addName.getText());
-                    player3 = String.valueOf(textPlayers3);
+                    player3 = textPlayers3.getText().toString();
                 addName.setText("");
                 addName.setHint("Введите имя");}
                 else if(textPlayers4.getText().toString().equals(n4) && addName.length()!= 0)
                 {textPlayers4.setText(addName.getText());
-                    player4 = String.valueOf(textPlayers4);
+                    player4 = textPlayers4.getText().toString();
                 addName.setText("");
                 addName.setHint("Введите имя");}
                 else if(textPlayers5.getText().toString().equals(n5) && addName.length()!= 0)
                 {textPlayers5.setText(addName.getText());
-                    player5 = String.valueOf(textPlayers5);
+                    player5 = textPlayers5.getText().toString();
                 addName.setText("");
                 addName.setHint("Введите имя");}
                 else if (addName.length()!=0)
@@ -175,6 +176,27 @@ public class MultiPlayerGame extends AppCompatActivity {
             score = 0;
             Random random = new Random();
             number = random.nextInt(MAX);
+
+        infoPlayer = (TextView)findViewById(R.id.infoPlayer);
+        infoPlayer2 = (TextView)findViewById(R.id.infoPlayer2);
+        infoPlayer3 = (TextView)findViewById(R.id.infoPlayer3);
+        infoPlayer4 = (TextView)findViewById(R.id.infoPlayer4);
+        infoPlayer5 = (TextView)findViewById(R.id.infoPlayer5);
+
+
+
+        if(textPlayers.getText().toString().equals(n)){infoPlayer.setText("Игрок 1");}
+        else{infoPlayer.setText(String.valueOf(player));}
+        if(textPlayers2.getText().toString().equals(n2)){infoPlayer2.setText("Игрок 2");}
+        else{infoPlayer2.setText(String.valueOf(player2));}
+        if(textPlayers3.getText().toString().equals(n3)){infoPlayer3.setText("Игрок 3");}
+        else{infoPlayer3.setText(String.valueOf(player3));}
+        if(textPlayers4.getText().toString().equals(n4)){infoPlayer4.setText("Игрок 4");}
+        else{infoPlayer4.setText(String.valueOf(player4));}
+        if(textPlayers5.getText().toString().equals(n5)){infoPlayer5.setText("Игрок 5");}
+        else{infoPlayer5.setText(String.valueOf(player5));}
+
+
         }
     private GridView.OnItemClickListener gridviewOnItemClickListener = new GridView.OnItemClickListener(){
 
