@@ -10,26 +10,25 @@ import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
 
-
-public class DialogNew extends DialogFragment {
+public class DialogNewLose  extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
-        View dialogView = inflater.inflate(R.layout.layout_dialog, null);
+        View dialogView = inflater.inflate(R.layout.layout_proigral, null);
 
-        final TextView textView = (TextView)dialogView.findViewById(R.id.textv);
-        final Button button1 = (Button)dialogView.findViewById(R.id.btn);
-        final Button button2 = (Button)dialogView.findViewById(R.id.btn2);
-        TextView textScore = (TextView)dialogView.findViewById(R.id.textScore2);
+        final TextView textLose = (TextView)dialogView.findViewById(R.id.textLose);
+        final Button button01 = (Button)dialogView.findViewById(R.id.button01);
+        final Button button02 = (Button)dialogView.findViewById(R.id.button02);
+        TextView textScore2 = (TextView)dialogView.findViewById(R.id.textScore2);
         MainActivity call = (MainActivity) getActivity();
         int score = call.score;
-        textScore.setText("Количество попыток: " +String.valueOf(score));
+        textScore2.setText("Количество попыток: " +String.valueOf(score));
 
         builder.setView(dialogView);
-        button2.setOnClickListener(new View.OnClickListener() {
+        button02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MainActivity callingActivity = (MainActivity) getActivity();
@@ -37,7 +36,7 @@ public class DialogNew extends DialogFragment {
                 dismiss();
             }
         });
-        button1.setOnClickListener(new View.OnClickListener() {
+        button01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MainActivity callingActivity = (MainActivity) getActivity();

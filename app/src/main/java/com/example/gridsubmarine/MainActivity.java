@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
+        Intent a = getIntent();
         if (Build.VERSION.SDK_INT < 19) {
             View v = this.getWindow().getDecorView();
             v.setSystemUiVisibility(View.GONE);
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
             decorView.setSystemUiVisibility(uiOptions);
         }
+
         startGame();
 //        setContentView(R.layout.layout_menu);
 
@@ -95,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i;
                 i = new Intent(MainActivity.this, MultiPlayerGame.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -177,7 +180,8 @@ public class MainActivity extends AppCompatActivity {
         dialog.show(getSupportFragmentManager(), "");
     }
     void BoomLose(){
-        finish();
+        DialogNewLose dialogLose = new DialogNewLose();
+        dialogLose.show(getSupportFragmentManager(), "");
     }
 }
 

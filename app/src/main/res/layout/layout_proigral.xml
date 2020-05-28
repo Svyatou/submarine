@@ -7,6 +7,42 @@
     android:background="@drawable/water">
 
     <TextView
+        android:id="@+id/textLose"
+        android:layout_width="279dp"
+        android:layout_height="45dp"
+        android:text="Поражение!"
+        android:textAlignment="center"
+        android:textColor="#063F57"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textScore2" />
+
+    <Button
+        android:id="@+id/button01"
+        android:layout_width="254dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/hint"
+        android:text="Заново"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLose" />
+
+    <Button
+        android:id="@+id/button02"
+        android:layout_width="254dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/hint"
+        android:text="Меню"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button01" />
+
+    <TextView
         android:id="@+id/textScore2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,50 +50,7 @@
         android:textAlignment="center"
         android:textColor="#063F57"
         android:textSize="18sp"
-        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textv"
-        android:layout_width="279dp"
-        android:layout_height="45dp"
-        android:text="@string/text"
-        android:textAlignment="center"
-        android:textColor="#063F57"
-        android:textSize="36sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textScore2"
-        app:layout_constraintVertical_bias="0.021" />
-
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="254dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/hint"
-        android:text="@string/button1"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textv" />
-
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="254dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/hint"
-        android:text="@string/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

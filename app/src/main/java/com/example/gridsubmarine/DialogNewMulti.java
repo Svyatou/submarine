@@ -2,6 +2,7 @@ package com.example.gridsubmarine;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,10 @@ public class DialogNewMulti extends DialogFragment {
         int score3 = call.score3;
         int score4 = call.score4;
         int score5 = call.score5;
+        String n2 = call.n2;
+        String n3 = call.n3;
+        String n4 = call.n4;
+        String n5 = call.n5;
         String winner = call.winner;
         String player = call.player;
         String player2 = call.player2;
@@ -43,10 +48,14 @@ public class DialogNewMulti extends DialogFragment {
         String player5 = call.player5;
 
         textPlayerP.setText(player+ ": "+ score);
-        textPlayerP2.setText(player2+": "+score2);
-        textPlayerP3.setText(player3+": "+score3);
-        textPlayerP4.setText(player4+": "+score4);
-        textPlayerP5.setText(player5+": "+score5);
+        if(player2.equals(null)){textPlayerP2.setText(n2+": "+score2);}
+        else{textPlayerP2.setText(player2+": "+score2);}
+        if(player3.equals(null)){textPlayerP3.setText(n3+": "+score3);}
+        else{textPlayerP3.setText(player3+": "+score3);}
+        if(player4.equals(null)){textPlayerP4.setText(n4+": "+score4);}
+        else{textPlayerP4.setText(player4+": "+score4);}
+        if(player5.equals(null)){textPlayerP5.setText(n5+": "+score5);}
+        else{textPlayerP5.setText(player5+": "+score5);}
         textWinner.setText("Победитель: " +winner);
 
 
@@ -62,8 +71,8 @@ public class DialogNewMulti extends DialogFragment {
         btnMultimenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity mainActivity = (MainActivity)getActivity();
-                mainActivity.startGame();
+                MultiPlayerGame calling = (MultiPlayerGame)getActivity();
+                calling.IntentMenu();
                 dismiss();
             }
         });

@@ -184,6 +184,7 @@ public class MultiPlayerGame extends AppCompatActivity {
         score3 = 0;
         score4 = 0;
         score5 = 0;
+        k=0;
         Random random = new Random();
         number = random.nextInt(MAX);
 
@@ -339,12 +340,15 @@ public class MultiPlayerGame extends AppCompatActivity {
         }};
 
 
+    void IntentMenu(){
+        Intent i;
+        i = new Intent(MultiPlayerGame.this, MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
     void Boom() {
         DialogNewMulti dialog = new DialogNewMulti();
         dialog.show(getSupportFragmentManager(), "");
     }
-
-
-
-
 }
