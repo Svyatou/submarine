@@ -229,8 +229,6 @@ public class MultiPlayerGame extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
-
-
             switch (k++){
                 case 0:
                 { if (number == position) {
@@ -268,13 +266,17 @@ public class MultiPlayerGame extends AppCompatActivity {
                     Boom();
                 } else if (number != position) {
                     score2++;
-                    textInfoHOD.setText("Переход хода к " + player3);
                     ImageView viewI = (ImageView) v;
                     Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
                     anim1.setDuration(1000);
                     anim1.setStartOffset(20);
                     viewI.setImageResource(R.drawable.no);
                     viewI.startAnimation(anim1);
+                    if(textPlayers3.getText().toString().equals(n3)){
+                        k=0;
+                        textInfoHOD.setText("Переход хода к " + player);
+                    } else{
+                        textInfoHOD.setText("Переход хода к " + player3);}
                 }
                     break;}
                 case 2:
@@ -291,13 +293,15 @@ public class MultiPlayerGame extends AppCompatActivity {
                     Boom();
                 } else if (number != position) {
                     score3++;
-                    textInfoHOD.setText("Переход хода к " + player4);
+
                     ImageView viewI = (ImageView) v;
                     Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
                     anim1.setDuration(1000);
                     anim1.setStartOffset(20);
                     viewI.setImageResource(R.drawable.no);
                     viewI.startAnimation(anim1);
+                    if(textPlayers4.getText().toString().equals(n4)){k=0; textInfoHOD.setText("Переход хода к " + player);}else{
+                    textInfoHOD.setText("Переход хода к " + player4);}
                 }
                     break;}
                 case 3:{
@@ -314,13 +318,15 @@ public class MultiPlayerGame extends AppCompatActivity {
                         Boom();
                     } else if (number != position) {
                         score4++;
-                        textInfoHOD.setText("Переход хода к " + player5);
+
                         ImageView viewI = (ImageView) v;
                         Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
                         anim1.setDuration(1000);
                         anim1.setStartOffset(20);
                         viewI.setImageResource(R.drawable.no);
                         viewI.startAnimation(anim1);
+                        if(textPlayers5.getText().toString().equals(n5)){k = 0; textInfoHOD.setText("Переход хода к " + player);}
+                        else{textInfoHOD.setText("Переход хода к " + player5);}
                     }
                     break;}
                 case 4:{
