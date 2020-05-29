@@ -175,10 +175,6 @@ public class MultiPlayerGame extends AppCompatActivity {
         ImageAdapter imageAdapter = new ImageAdapter(this);
         gridViewMulti.setAdapter(new ImageAdapter(this));
         gridViewMulti.setOnItemClickListener(clickPlayer);
-//        gridViewMulti.setOnItemClickListener(clickPlayer2);
-//        gridViewMulti.setOnItemClickListener(clickPlayer3);
-//        gridViewMulti.setOnItemClickListener(clickPlayer4);
-//        gridViewMulti.setOnItemClickListener(clickPlayer5);
         score = 0;
         score2 = 0;
         score3 = 0;
