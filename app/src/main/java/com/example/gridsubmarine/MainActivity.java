@@ -160,6 +160,12 @@ public class MainActivity extends AppCompatActivity {
             textView.setText("Ваш выбор: " +String.valueOf(position+1));
 
             if (number == position) {
+                ImageView viewI = (ImageView) v;
+                Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                anim1.setDuration(1000);
+                anim1.setStartOffset(20);
+                viewI.setImageResource(R.drawable.ok);
+                viewI.startAnimation(anim1);
                 Boom();
             } else if(number != position){
 

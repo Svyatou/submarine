@@ -27,6 +27,7 @@ public class MultiPlayerGame extends AppCompatActivity {
 
     private TextView textView;
     ImageView imageNo;
+
     TextView textAddplayer;
     EditText addName;
     Button btnStartpl;
@@ -54,6 +55,7 @@ public class MultiPlayerGame extends AppCompatActivity {
     final String n4 = "Игрок 4";
     final String n5 = "Игрок 5";
 
+    int p = 1;
     int k =0;
     public final int MAX = 34;
     public int number;
@@ -151,10 +153,12 @@ public class MultiPlayerGame extends AppCompatActivity {
         btnStartpl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(addName.length() == 0 && (textPlayers.getText().toString()).equals(n) || (textPlayers.getText().toString()).equals(n))
+                if(addName.length() == 0 && (textPlayers.getText().toString()).equals(n) || (textPlayers.getText().toString()).equals(n)
+                        || addName.length() == 0 && (textPlayers2.getText().toString()).equals(n2) || (textPlayers2.getText().toString()).equals(n2) )
                 {addName.setText("");
-                    addName.setHint("Должен быть хотя бы 1 введенный игрок");} else{
-                initeGameMulti();}
+                    addName.setHint("Должено быть хотя бы 2 игрока");} else{
+                    initeGameMulti();
+                        }
             }
         });
     }
@@ -225,12 +229,132 @@ public class MultiPlayerGame extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
+
+
+            switch (k++){
+                case 0:
+                { if (number == position) {
+                    score++;
+                    winner = player;
+                    ImageView viewI = (ImageView) v;
+                    Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                    anim1.setDuration(1000);
+                    anim1.setStartOffset(20);
+                    viewI.setImageResource(R.drawable.ok);
+                    viewI.startAnimation(anim1);
+                    Boom();
+                } else if (number != position) {
+                    score++;
+                    textInfoHOD.setText("Переход хода к " + player2);
+                    ImageView viewI = (ImageView) v;
+                    Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                    anim1.setDuration(1000);
+                    anim1.setStartOffset(20);
+                    viewI.setImageResource(R.drawable.no);
+                    viewI.startAnimation(anim1);
+                }
+                    break;}
+                case 1:
+                {if (number == position) {
+                    score2++;
+                    winner = player2;
+                    ImageView viewI = (ImageView) v;
+                    Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                    anim1.setDuration(1000);
+                    anim1.setStartOffset(20);
+                    viewI.setImageResource(R.drawable.ok);
+                    viewI.startAnimation(anim1);
+                    Boom();
+                    Boom();
+                } else if (number != position) {
+                    score2++;
+                    textInfoHOD.setText("Переход хода к " + player3);
+                    ImageView viewI = (ImageView) v;
+                    Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                    anim1.setDuration(1000);
+                    anim1.setStartOffset(20);
+                    viewI.setImageResource(R.drawable.no);
+                    viewI.startAnimation(anim1);
+                }
+                    break;}
+                case 2:
+                { if (number == position) {
+                    score3++;
+                    winner = player3;
+                    ImageView viewI = (ImageView) v;
+                    Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                    anim1.setDuration(1000);
+                    anim1.setStartOffset(20);
+                    viewI.setImageResource(R.drawable.ok);
+                    viewI.startAnimation(anim1);
+                    Boom();
+                    Boom();
+                } else if (number != position) {
+                    score3++;
+                    textInfoHOD.setText("Переход хода к " + player4);
+                    ImageView viewI = (ImageView) v;
+                    Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                    anim1.setDuration(1000);
+                    anim1.setStartOffset(20);
+                    viewI.setImageResource(R.drawable.no);
+                    viewI.startAnimation(anim1);
+                }
+                    break;}
+                case 3:{
+                    if (number == position) {
+                        score4++;
+                        winner = player4;
+                        ImageView viewI = (ImageView) v;
+                        Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                        anim1.setDuration(1000);
+                        anim1.setStartOffset(20);
+                        viewI.setImageResource(R.drawable.ok);
+                        viewI.startAnimation(anim1);
+                        Boom();
+                        Boom();
+                    } else if (number != position) {
+                        score4++;
+                        textInfoHOD.setText("Переход хода к " + player5);
+                        ImageView viewI = (ImageView) v;
+                        Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                        anim1.setDuration(1000);
+                        anim1.setStartOffset(20);
+                        viewI.setImageResource(R.drawable.no);
+                        viewI.startAnimation(anim1);
+                    }
+                    break;}
+                case 4:{
+                    if (number == position) {
+                        score5++;
+                        winner = player5;
+                        ImageView viewI = (ImageView) v;
+                        Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                        anim1.setDuration(1000);
+                        anim1.setStartOffset(20);
+                        viewI.setImageResource(R.drawable.ok);
+                        viewI.startAnimation(anim1);
+                        Boom();
+                        Boom();
+                    } else if (number != position) {
+                        score5++;
+                        textInfoHOD.setText("Переход хода к " + player);
+                        ImageView viewI = (ImageView) v;
+                        Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
+                        anim1.setDuration(1000);
+                        anim1.setStartOffset(20);
+                        viewI.setImageResource(R.drawable.no);
+                        viewI.startAnimation(anim1);
+                        k = 0;
+                    }
+                    break;}
+            }
+
             if (textPlayers.getText().toString().equals(n)) {
-            player = n;
-            infoPlayer.setText(n + ": " + score);
-        } else {
-            infoPlayer.setText(String.valueOf(player + ": " + score));
-        }
+                player = n;
+                infoPlayer.setText(n + ": " + score);
+            } else {
+                infoPlayer.setText(String.valueOf(player + ": " + score));
+            }
             if (textPlayers2.getText().toString().equals(n2)) {
                 player2 = n2;
                 infoPlayer2.setText(n2 + ": " + score2);
@@ -255,91 +379,7 @@ public class MultiPlayerGame extends AppCompatActivity {
             } else {
                 infoPlayer5.setText(String.valueOf(player5 + ": " + score5));
             }
-            switch (k++){
-                case 0:
-                { if (number == position) {
-                        score++;
-                        winner = player;
-                        Boom();
-                    } else if (number != position) {
-                        score++;
-                        textInfoHOD.setText("Переход хода к " + player2);
-                        ImageView viewI = (ImageView) v;
-                        Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
-                        anim1.setDuration(1000);
-                        anim1.setStartOffset(20);
-                        viewI.setImageResource(R.drawable.no);
-                        viewI.startAnimation(anim1);
-                    }
-                    break;}
-                case 1:
-                {if (number == position) {
-                    score2++;
-                    winner = player2;
-                    Boom();
-                } else if (number != position) {
-                    score2++;
-                    textInfoHOD.setText("Переход хода к " + player3);
-                    ImageView viewI = (ImageView) v;
-                    Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
-                    anim1.setDuration(1000);
-                    anim1.setStartOffset(20);
-                    viewI.setImageResource(R.drawable.no);
-                    viewI.startAnimation(anim1);
-                }
-                   break;}
-                case 2:
-                { if (number == position) {
-                    score3++;
-                    winner = player3;
-                    Boom();
-                } else if (number != position) {
-                    score3++;
-                    textInfoHOD.setText("Переход хода к " + player4);
-                    ImageView viewI = (ImageView) v;
-                    Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
-                    anim1.setDuration(1000);
-                    anim1.setStartOffset(20);
-                    viewI.setImageResource(R.drawable.no);
-                    viewI.startAnimation(anim1);
-                }
-                    break;}
-                case 3:{
-                    if (number == position) {
-                    score4++;
-                    winner = player4;
-                    Boom();
-                } else if (number != position) {
-                    score4++;
-                    textInfoHOD.setText("Переход хода к " + player5);
-                    ImageView viewI = (ImageView) v;
-                    Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
-                    anim1.setDuration(1000);
-                    anim1.setStartOffset(20);
-                    viewI.setImageResource(R.drawable.no);
-                    viewI.startAnimation(anim1);
-                }
-                    break;}
-                case 4:{
-                    if (number == position) {
-                    score5++;
-                    winner = player5;
-                    Boom();
-                } else if (number != position) {
-                    score5++;
-                    textInfoHOD.setText("Переход хода к " + player);
-                    ImageView viewI = (ImageView) v;
-                    Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
-                    anim1.setDuration(1000);
-                    anim1.setStartOffset(20);
-                    viewI.setImageResource(R.drawable.no);
-                    viewI.startAnimation(anim1);
-                    k = 0;
-                }
-                    break;}
-            }
         }};
-
 
     void IntentMenu(){
         Intent i;
