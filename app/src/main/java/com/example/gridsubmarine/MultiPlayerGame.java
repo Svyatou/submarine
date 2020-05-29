@@ -228,10 +228,40 @@ public class MultiPlayerGame extends AppCompatActivity {
     GridView.OnItemClickListener clickPlayer = new GridView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+
+            if (textPlayers.getText().toString().equals(n)) {
+            player = n;
+            infoPlayer.setText(n + ": " + score);
+        } else {
+            infoPlayer.setText(String.valueOf(player + ": " + score));
+        }
+            if (textPlayers2.getText().toString().equals(n2)) {
+                player2 = n2;
+                infoPlayer2.setText(n2 + ": " + score2);
+            } else {
+                infoPlayer2.setText(String.valueOf(player2 + ": " + score2));
+            }
+            if (textPlayers3.getText().toString().equals(n3)) {
+                player3 = n3;
+                infoPlayer3.setText(n3 + ": " + score3);
+            } else {
+                infoPlayer3.setText(String.valueOf(player3 + ": " + score3));
+            }
+            if (textPlayers4.getText().toString().equals(n4)) {
+                player4 = n4;
+                infoPlayer4.setText(n4 + ": " + score4);
+            } else {
+                infoPlayer4.setText(String.valueOf(player4 + ": " + score4));
+            }
+            if (textPlayers5.getText().toString().equals(n5)) {
+                player5 = n5;
+                infoPlayer5.setText(n5 + ": " + score5);
+            } else {
+                infoPlayer5.setText(String.valueOf(player5 + ": " + score5));
+            }
             switch (k++){
                 case 0:
-                {
-                    if (number == position) {
+                { if (number == position) {
                         score++;
                         winner = player;
                         Boom();
@@ -245,12 +275,7 @@ public class MultiPlayerGame extends AppCompatActivity {
                         viewI.setImageResource(R.drawable.no);
                         viewI.startAnimation(anim1);
                     }
-                    if (textPlayers.getText().toString().equals(n)) {
-                        player = n;
-                        infoPlayer.setText(n + ": " + score);
-                    } else {
-                        infoPlayer.setText(String.valueOf(player + ": " + score));
-                    } break;}
+                    break;}
                 case 1:
                 {if (number == position) {
                     score2++;
@@ -266,12 +291,7 @@ public class MultiPlayerGame extends AppCompatActivity {
                     viewI.setImageResource(R.drawable.no);
                     viewI.startAnimation(anim1);
                 }
-                    if (textPlayers2.getText().toString().equals(n2)) {
-                        player2 = n2;
-                        infoPlayer2.setText(n2 + ": " + score2);
-                    } else {
-                        infoPlayer2.setText(String.valueOf(player2 + ": " + score2));
-                    }break;}
+                   break;}
                 case 2:
                 { if (number == position) {
                     score3++;
@@ -287,12 +307,7 @@ public class MultiPlayerGame extends AppCompatActivity {
                     viewI.setImageResource(R.drawable.no);
                     viewI.startAnimation(anim1);
                 }
-                    if (textPlayers3.getText().toString().equals(n3)) {
-                        player3 = n3;
-                        infoPlayer3.setText(n3 + ": " + score3);
-                    } else {
-                        infoPlayer3.setText(String.valueOf(player3 + ": " + score3));
-                    } break;}
+                    break;}
                 case 3:{
                     if (number == position) {
                     score4++;
@@ -308,12 +323,7 @@ public class MultiPlayerGame extends AppCompatActivity {
                     viewI.setImageResource(R.drawable.no);
                     viewI.startAnimation(anim1);
                 }
-                    if (textPlayers4.getText().toString().equals(n4)) {
-                        player4 = n4;
-                        infoPlayer4.setText(n4 + ": " + score4);
-                    } else {
-                        infoPlayer4.setText(String.valueOf(player4 + ": " + score4));
-                    }break;}
+                    break;}
                 case 4:{
                     if (number == position) {
                     score5++;
@@ -330,12 +340,7 @@ public class MultiPlayerGame extends AppCompatActivity {
                     viewI.startAnimation(anim1);
                     k = 0;
                 }
-                    if (textPlayers5.getText().toString().equals(n5)) {
-                        player5 = n5;
-                        infoPlayer5.setText(n5 + ": " + score5);
-                    } else {
-                        infoPlayer5.setText(String.valueOf(player5 + ": " + score5));
-                    } break;}
+                    break;}
             }
         }};
 
